@@ -10,7 +10,8 @@ export const theme: Theme = {
     secondary: '#F9B759',
     text: '#333333',
     background: '#FEFEFE',
-    tertiary: '#2AC6F9',
     gray: '#808080',
+    'primary-bright': '#2AC6F9',
+    'primary-dark': '#093B51',
   },
 };

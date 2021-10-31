@@ -10,12 +10,12 @@ interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = ({}) => {
   return (
-    <Box color="white" bg="#0D5474" sx={{ height: '60px' }}>
+    <Box color="white" bg="primary" sx={{ height: '60px' }}>
       <Flex sx={{ height: 'inherit' }}>
         <Box sx={{ flex: '1 1 auto', margin: 'auto 0 auto 2ch' }}>
-          <Image src={logo} height={30} width={30} />
+          <Image src={logo} height={30} width={30} alt="Online Logo" />
         </Box>
-        <Box sx={{ height: '40px', margin: 'auto 0', width: '250px', borderRadius: '20px' }} bg="#093B51">
+        <Box sx={{ height: '40px', margin: 'auto 0', width: '250px', borderRadius: '20px' }} bg="primary-dark">
           <Input
             sx={{
               height: '40px',
@@ -33,22 +33,22 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               position: 'relative',
               left: '210px',
               top: '-40px',
-              color: '#0D5474',
+              color: 'primary',
             }}
           />
         </Box>
         <Flex sx={{ margin: 'auto 0' }}>
-          <Link href="/home">
+          <Link href="/home" passHref>
             <ThemeLink href="#" p={3}>
               Hjem
             </ThemeLink>
           </Link>
-          <Link href="/collaborate">
+          <Link href="/collaborate" passHref>
             <ThemeLink href="#" p={3}>
               Bidra
             </ThemeLink>
           </Link>
-          <Link href="/portal">
+          <Link href="/portal" passHref>
             <ThemeLink href="#" p={3}>
               Portal
             </ThemeLink>
