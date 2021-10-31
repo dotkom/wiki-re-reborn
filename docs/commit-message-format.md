@@ -1,6 +1,6 @@
 # Commit message format
 
-This project follows a modified version of the Angular commit message format. 
+This project follows a modified version of the Angular commit message format.
 Each commit message consists of a **header**, an optional **body** and an
 optional **footer**.
 
@@ -42,7 +42,7 @@ The type must be one of the following
 
 ## Scope
 
-The scope should be one of the project's modules or another relevant category 
+The scope should be one of the project's modules or another relevant category
 specific to the type.
 
 The following are examples of scopes used by the project:
