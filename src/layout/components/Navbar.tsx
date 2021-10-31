@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
           />
         </Box>
         <Flex sx={{ margin: 'auto 0' }}>
-          <Link href="/home" passHref>
+          <Link href="/" passHref>
             <ThemeLink href="#" p={3}>
               Hjem
             </ThemeLink>
