@@ -1,1 +1,1 @@
-# wiki-rereborn
+# wiki-re-reborn
