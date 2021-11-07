@@ -2,7 +2,7 @@ import useSWR from 'swr';
 
 const date = new Date().toISOString().split('T')[0];
 
-const fetcher = (param: RequestInfo) =>
+export const fetcher = (param: RequestInfo) =>
   fetch(`https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v${date}/data/query/production?query=${param}`).then(
     (r) => r.json()
   );
@@ -19,6 +19,17 @@ export const useArticles = () => {
 
 export const useArticleBySlug = (slug: string) => {
   const query = encodeURIComponent(`*[_type == "articles" && slug.current == "${slug}"][0]{..., portal->}`);
+  const { data, error } = useSWR(query, fetcher);
+
+  return {
+    data: data,
+    loading: !error && !data,
+    error: error,
+  };
+};
+
+export const useArticlesByPortalSlug = (slug: string) => {
+  const query = encodeURIComponent(`*[_type == "articles" && portal->slug.current== "${slug}"]{..., portal->}`);
   const { data, error } = useSWR(query, fetcher);
 
   return {
