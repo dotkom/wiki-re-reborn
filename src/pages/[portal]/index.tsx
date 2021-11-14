@@ -23,7 +23,7 @@ const PortalIndex: React.FC<PortalIndexProps> = ({ portal }) => {
     <>
       <h1>{name} portal</h1>
       {data.result.map((article: Article, key: number) => (
-        <Link href={`/${current}/${article.slug.current}`}>
+        <Link href={`/${current}/${article.slug.current}`} key={key} passHref>
           <div>
             <a>{article.title}</a>
             <p>{article.excerpt}</p>
