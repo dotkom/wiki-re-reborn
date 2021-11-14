@@ -5,11 +5,11 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
 
-interface ArticleIndexProps {
+interface ArticleViewProps {
   article: Article;
 }
 
-const ArticleIndex: React.FC<ArticleIndexProps> = ({ article }) => {
+const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
   const { title, _createdAt, _updatedAt, body } = article;
 
   const parseDate = (dateString: string) => {
@@ -87,4 +87,4 @@ const renderHeading = (props: any) => {
   );
 };
 
-export default ArticleIndex;
+export default ArticleView;

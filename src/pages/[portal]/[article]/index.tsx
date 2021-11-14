@@ -2,16 +2,16 @@ import { GetServerSideProps } from 'next';
 import React from 'react';
 import { Article } from '../../../../types/types';
 import { fetcher } from '../../../api/hooks';
-import ArticleIndex from '../../../article/ArticleIndex';
+import ArticleView from '../../../article/ArticleView';
 
 interface ArticleIndexProps {
   article: Article;
 }
 
-const ArticleView: React.FC<ArticleIndexProps> = ({ article }) => {
+const ArticleIndex: React.FC<ArticleIndexProps> = ({ article }) => {
   return (
     <>
-      <ArticleIndex article={article} />
+      <ArticleView article={article} />
     </>
   );
 };

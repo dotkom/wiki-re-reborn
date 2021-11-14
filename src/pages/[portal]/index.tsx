@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { Article, Portal } from '../../../types/types';
 import { fetcher, useArticlesByPortalSlug } from '../../api/hooks';
+import PortalView from '../../portal/PortalView';
 
 interface PortalIndexProps {
   portal: Portal;
@@ -21,7 +22,7 @@ const PortalIndex: React.FC<PortalIndexProps> = ({ portal }) => {
 
   return (
     <>
-      <h1>{name} portal</h1>
+      {/* <h1>{name} portal</h1>
       {data.result.map((article: Article, key: number) => (
         <Link href={`/${current}/${article.slug.current}`} key={key} passHref>
           <div>
@@ -29,7 +30,8 @@ const PortalIndex: React.FC<PortalIndexProps> = ({ portal }) => {
             <p>{article.excerpt}</p>
           </div>
         </Link>
-      ))}
+      ))} */}
+      <PortalView />
     </>
   );
 };
