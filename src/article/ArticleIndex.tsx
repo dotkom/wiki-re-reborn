@@ -1,6 +1,6 @@
 import React from 'react';
 import { Article } from '../../types/types';
-import { Box, Flex, Heading, Text } from 'theme-ui';
+import { Box, Flex, Heading, Paragraph } from 'theme-ui';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
@@ -59,7 +59,14 @@ const ArticleIndex: React.FC<ArticleIndexProps> = ({ article }) => {
             h5: renderHeading,
             h6: renderHeading,
             p: ({ node, ...props }) => {
-              return <Text sx={{ color: 'text', fontSize: '16px' }}>{props.children}</Text>;
+              return (
+                <Paragraph
+                  variant="block"
+                  sx={{ color: 'text', fontSize: '16px', fontFamily: 'source-sans', margin: 'revert' }}
+                >
+                  {props.children}
+                </Paragraph>
+              );
             },
             a: ({ node, ...props }) => {
               return <Link href={`${props.href}`}>{props.title}</Link>;
