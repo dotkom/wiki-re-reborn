@@ -18,10 +18,7 @@ const ArticleIndex: React.FC<ArticleIndexProps> = ({ article }) => {
   };
 
   const isUpdated = (dateCreated: string, dateUpdated: string) => {
-    if (parseDate(dateCreated) == parseDate(dateUpdated)) {
-      return false;
-    }
-    return true;
+    return !(parseDate(dateCreated) == parseDate(dateUpdated));
   };
 
   return (
@@ -40,8 +37,10 @@ const ArticleIndex: React.FC<ArticleIndexProps> = ({ article }) => {
         <Heading as="h1" sx={{ fontFamily: 'source-sans', mb: '5px', fontSize: '34pt' }}>
           {title}
         </Heading>
-        <small>Publisert: {parseDate(_createdAt)}</small>
-        <small>{isUpdated(_createdAt, _updatedAt) ? ', sist endret: ' + parseDate(_updatedAt) : ''}</small>
+        <small suppressHydrationWarning>Publisert: {parseDate(_createdAt)}</small>
+        <small suppressHydrationWarning>
+          {isUpdated(_createdAt, _updatedAt) ? ', sist endret: ' + parseDate(_updatedAt) : ''}
+        </small>
       </Box>
       <Box
         sx={{
