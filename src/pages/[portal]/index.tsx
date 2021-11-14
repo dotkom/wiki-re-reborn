@@ -31,7 +31,7 @@ const PortalIndex: React.FC<PortalIndexProps> = ({ portal }) => {
           </div>
         </Link>
       ))} */}
-      <PortalView />
+      <PortalView articles={data.result} />
     </>
   );
 };
