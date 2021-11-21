@@ -2,6 +2,7 @@ import React, { createContext } from 'react';
 import { Box, Divider, Flex, Heading, Text } from 'theme-ui';
 import { Article, Portal } from '../../types/types';
 import PortalAlphabeticalArticles from './components/PortalAlphabeticalArticles';
+import PortalFeaturedArticle from './components/PortalFeaturedArticle';
 import PortalTopArticles from './components/PortalTopArticles';
 
 interface PortalViewProps {
@@ -28,6 +29,7 @@ const PortalView: React.FC<PortalViewProps> = ({ articles, portal }) => {
       <PortalContext.Provider value={articles}>
         <Box>
           <Flex sx={{ justifyContent: 'center', alignItems: 'center' }}>
+            <PortalFeaturedArticle />
             <PortalTopArticles />
           </Flex>
           <PortalAlphabeticalArticles />
