@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Divider, Flex, Heading, Text, Image, Paragraph } from 'theme-ui';
 import { Article } from '../../../types/types';
 import Link from 'next/link';
+import { PortalContext } from '../PortalView';
 
-interface PortalFeaturedArticleProps {
-  articles: Article[];
-}
+interface PortalFeaturedArticleProps {}
 
-const PortalFeaturedArticle: React.FC<PortalFeaturedArticleProps> = ({ articles }) => {
+const PortalFeaturedArticle: React.FC<PortalFeaturedArticleProps> = () => {
+  const articles = useContext(PortalContext);
+
   let featured_article = articles[0];
   articles.forEach((article) => {
     const featured_date = new Date(featured_article._createdAt);
