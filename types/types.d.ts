@@ -21,6 +21,7 @@ export interface Portal {
   _updatedAt: string;
   category: string;
   name: string;
+  description: string;
   slug: Slug;
 }
 
