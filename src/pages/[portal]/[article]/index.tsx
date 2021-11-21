@@ -39,4 +39,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
-export default ArticleIndex;
+export default ArticleView;
