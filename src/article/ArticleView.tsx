@@ -1,6 +1,6 @@
 import React from 'react';
 import { Article } from '../../types/types';
-import { Box, Flex, Heading, Paragraph } from 'theme-ui';
+import { Box, Flex, Heading, Paragraph, Image } from 'theme-ui';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
@@ -69,6 +69,13 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
             },
             a: ({ node, ...props }) => {
               return <Link href={`${props.href}`}>{props.title}</Link>;
+            },
+            img: ({ node, ...props }) => {
+              return (
+                <Flex sx={{ justifyContent: 'center' }}>
+                  <Image src={`${props.src}`} alt={`${props.alt}`} />
+                </Flex>
+              );
             },
           }}
         ></ReactMarkdown>
