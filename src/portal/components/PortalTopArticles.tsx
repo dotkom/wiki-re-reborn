@@ -25,7 +25,7 @@ const PortalTopArticles: React.FC<PortalTopArticlesProps> = () => {
         width: '350px',
       }}
     >
-      <Heading sx={{ fontFamily: 'source-serif-pro', fontSize: '20pt', textAlign: 'center', fontWeight: 'normal' }}>
+      <Heading sx={{ fontFamily: 'source-serif-pro', fontSize: '24pt', textAlign: 'center', fontWeight: 'normal' }}>
         Mest Leste Artikler
       </Heading>
 

@@ -19,12 +19,22 @@ const PortalView: React.FC<PortalViewProps> = ({ articles, portal }) => {
   return (
     <>
       <Flex sx={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-        <Heading sx={{ fontFamily: 'source-serif', fontSize: '28pt', textAlign: 'center', fontWeight: 'bold' }}>
+        <Heading sx={{ fontFamily: 'source-serif-pro', fontSize: '28pt', textAlign: 'center', fontWeight: 'bold' }}>
           {portalName} Portal
         </Heading>
 
         <Divider sx={{ color: '#F9B759', borderBottom: '4px solid', width: '80px' }} />
-        <Text sx={{ maxWidth: '700px', textAlign: 'center' }}>{portalDescription}</Text>
+        <Text
+          sx={{
+            maxWidth: '700px',
+            textAlign: 'center',
+            fontFamily: 'source-sans-pro',
+            fontSize: '20pt',
+            color: 'text',
+          }}
+        >
+          {portalDescription}
+        </Text>
       </Flex>
       <PortalContext.Provider value={articles}>
         <Box>
