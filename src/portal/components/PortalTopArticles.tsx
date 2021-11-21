@@ -4,6 +4,7 @@ import { Article, Portal } from '../../../types/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { PortalContext } from '../PortalView';
+import Link from 'next/link';
 
 interface PortalTopArticlesProps {}
 
@@ -34,21 +35,25 @@ const PortalTopArticles: React.FC<PortalTopArticlesProps> = () => {
         <ol style={{ margin: 0 }}>
           {sorted_list.map((article: Article, key: number) => (
             <li style={{ color: '#0D5474' }} key={key}>
-              <Flex
-                sx={{ flexDirection: 'row', justifyContent: 'space-between', height: '30px', alignItems: 'center' }}
-              >
-                <Box>
-                  <Text sx={{ fontFamily: 'sans-serif', color: 'text' }}>{article.title}</Text>
-                </Box>
+              <Link href={`/${article.portal.slug.current}/${article.slug.current}`}>
+                <a>
+                  <Flex
+                    sx={{ flexDirection: 'row', justifyContent: 'space-between', height: '30px', alignItems: 'center' }}
+                  >
+                    <Box>
+                      <Text sx={{ fontFamily: 'sans-serif', color: 'text' }}>{article.title}</Text>
+                    </Box>
 
-                <Box>
-                  <Text sx={{ fontFamily: 'sans-serif', color: 'text', mr: '5px' }}>{article.views}</Text>
-                  <FontAwesomeIcon
-                    icon={faEye}
-                    style={{ width: '22px', height: '14px', color: 'black' }}
-                  ></FontAwesomeIcon>
-                </Box>
-              </Flex>
+                    <Box>
+                      <Text sx={{ fontFamily: 'sans-serif', color: 'text', mr: '5px' }}>{article.views}</Text>
+                      <FontAwesomeIcon
+                        icon={faEye}
+                        style={{ width: '22px', height: '14px', color: 'black' }}
+                      ></FontAwesomeIcon>
+                    </Box>
+                  </Flex>
+                </a>
+              </Link>
             </li>
           ))}
         </ol>
