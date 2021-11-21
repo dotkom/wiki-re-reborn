@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Divider, Flex, Heading, Text } from 'theme-ui';
 import { Article, Portal } from '../../../types/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { PortalContext } from '../PortalView';
 
-interface PortalTopArticlesProps {
-  articles: Article[];
-}
+interface PortalTopArticlesProps {}
 
-const PortalTopArticles: React.FC<PortalTopArticlesProps> = ({ articles }) => {
+const PortalTopArticles: React.FC<PortalTopArticlesProps> = () => {
+  const articles = useContext(PortalContext);
+
   let sorted_list = articles.sort((a, b) => a.views - b.views);
   if (sorted_list.length > 10) {
     sorted_list = sorted_list.slice(0, 10);
@@ -23,14 +24,14 @@ const PortalTopArticles: React.FC<PortalTopArticlesProps> = ({ articles }) => {
         width: '350px',
       }}
     >
-      <Heading sx={{ fontFamily: 'source-serif', fontSize: '24pt', textAlign: 'center', fontWeight: 'normal' }}>
+      <Heading sx={{ fontFamily: 'source-serif', fontSize: '20pt', textAlign: 'center', fontWeight: 'normal' }}>
         Mest Leste Artikler
       </Heading>
 
       <Divider sx={{ color: '#F9B759', borderBottom: '2px solid', width: '80px' }} />
 
       <Box sx={{ height: 'inherit', width: 'inherit' }}>
-        <ol>
+        <ol style={{ margin: 0 }}>
           {sorted_list.map((article: Article, key: number) => (
             <li style={{ color: '#0D5474' }} key={key}>
               <Flex

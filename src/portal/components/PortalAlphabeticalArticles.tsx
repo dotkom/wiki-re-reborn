@@ -1,13 +1,14 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Divider, Flex, Grid } from 'theme-ui';
 import { Article } from '../../../types/types';
+import { PortalContext } from '../PortalView';
 
-interface PortalAlphabeticalArticlesProps {
-  articles: Article[];
-}
+interface PortalAlphabeticalArticlesProps {}
 
-const PortalAlphabeticalArticles: React.FC<PortalAlphabeticalArticlesProps> = ({ articles }) => {
+const PortalAlphabeticalArticles: React.FC<PortalAlphabeticalArticlesProps> = () => {
+  const articles = useContext(PortalContext);
+
   const sortedAlphabetically = articles.sort((a, b) => {
     return a.title.localeCompare(b.title);
   });
@@ -36,11 +37,9 @@ const PortalAlphabeticalArticles: React.FC<PortalAlphabeticalArticlesProps> = ({
                 <ul>
                   {value.map((article) => {
                     return (
-                      <Link href={`${article.portal.slug.current}/${article.slug.current}`}>
+                      <Link href={`${article.portal.slug.current}/${article.slug.current}`} passHref key={article._id}>
                         <a>
-                          <li style={{ color: '#0D5474' }} key={article._id}>
-                            {article.title}
-                          </li>
+                          <li style={{ color: '#0D5474' }}>{article.title}</li>
                         </a>
                       </Link>
                     );
