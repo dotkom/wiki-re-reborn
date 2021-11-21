@@ -25,7 +25,7 @@ const PortalTopArticles: React.FC<PortalTopArticlesProps> = () => {
         width: '350px',
       }}
     >
-      <Heading sx={{ fontFamily: 'source-serif', fontSize: '20pt', textAlign: 'center', fontWeight: 'normal' }}>
+      <Heading sx={{ fontFamily: 'source-serif-pro', fontSize: '20pt', textAlign: 'center', fontWeight: 'normal' }}>
         Mest Leste Artikler
       </Heading>
 
@@ -41,11 +41,11 @@ const PortalTopArticles: React.FC<PortalTopArticlesProps> = () => {
                     sx={{ flexDirection: 'row', justifyContent: 'space-between', height: '30px', alignItems: 'center' }}
                   >
                     <Box>
-                      <Text sx={{ fontFamily: 'sans-serif', color: 'text' }}>{article.title}</Text>
+                      <Text sx={{ fontFamily: 'sans-serif-pro', color: 'text' }}>{article.title}</Text>
                     </Box>
 
                     <Box>
-                      <Text sx={{ fontFamily: 'sans-serif', color: 'text', mr: '5px' }}>{article.views}</Text>
+                      <Text sx={{ fontFamily: 'sans-serif-pro', color: 'text', mr: '5px' }}>{article.views}</Text>
                       <FontAwesomeIcon
                         icon={faEye}
                         style={{ width: '22px', height: '14px', color: 'black' }}

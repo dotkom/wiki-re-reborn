@@ -61,7 +61,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
               return (
                 <Paragraph
                   variant="block"
-                  sx={{ color: 'text', fontSize: '16px', fontFamily: 'source-sans', margin: 'revert' }}
+                  sx={{ color: 'text', fontSize: '16px', fontFamily: 'source-sans-pro', margin: 'revert' }}
                 >
                   {props.children}
                 </Paragraph>
@@ -80,7 +80,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
 const renderHeading = (props: any) => {
   const headerType = 'h' + props.level;
   return (
-    <Heading as={headerType as React.ElementType<any>} sx={{ fontFamily: 'source-sans', margin: '30px 0 8px 0' }}>
+    <Heading as={headerType as React.ElementType<any>} sx={{ fontFamily: 'source-sans-pro', margin: '30px 0 8px 0' }}>
       {props.children}
     </Heading>
   );
