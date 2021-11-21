@@ -54,7 +54,7 @@ const PortalFeaturedArticle: React.FC<PortalFeaturedArticleProps> = () => {
           >
             {featured_image() != '' ? (
               <Box sx={{ minWidth: '220px', height: '240px', mr: '20px' }}>
-                <Image src={featured_image()} sx={{ minWidth: '220px', height: '240px' }} />
+                <Image src={featured_image()} sx={{ maxWidth: '220px', minWidth: '200px', maxHeight: '240px' }} />
               </Box>
             ) : (
               ''
