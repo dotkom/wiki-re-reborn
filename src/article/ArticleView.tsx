@@ -26,15 +26,11 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
       sx={{
         justifyContent: 'center',
         flexDirection: 'column',
-        margin: '30px 50px',
+        gap: '1rem',
       }}
     >
-      <Box
-        sx={{
-          pb: '10px',
-        }}
-      >
-        <Heading as="h1" sx={{ fontFamily: 'source-sans', mb: '5px', fontSize: '34pt' }}>
+      <Box>
+        <Heading as="h1" sx={{ fontFamily: 'heading', mb: '0.5rem', fontSize: '34pt' }}>
           {title}
         </Heading>
         <small suppressHydrationWarning>Publisert: {parseDate(_createdAt)}</small>
@@ -42,11 +38,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
           {isUpdated(_createdAt, _updatedAt) ? ', sist endret: ' + parseDate(_updatedAt) : ''}
         </small>
       </Box>
-      <Box
-        sx={{
-          paddingRight: '20%',
-        }}
-      >
+      <Box sx={{}}>
         <ReactMarkdown
           plugins={[remarkGfm]}
           children={body}
@@ -59,12 +51,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
             h6: renderHeading,
             p: ({ node, ...props }) => {
               return (
-                <Paragraph
-                  variant="block"
-                  sx={{ color: 'text', fontSize: '16px', fontFamily: 'source-sans-pro', margin: 'revert' }}
-                >
-                  {props.children}
-                </Paragraph>
+                <Paragraph sx={{ color: 'text', fontFamily: 'body', margin: 'revert' }}>{props.children}</Paragraph>
               );
             },
             a: ({ node, ...props }) => {
@@ -87,7 +74,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
 const renderHeading = (props: any) => {
   const headerType = 'h' + props.level;
   return (
-    <Heading as={headerType as React.ElementType<any>} sx={{ fontFamily: 'source-sans-pro', margin: '30px 0 8px 0' }}>
+    <Heading as={headerType as React.ElementType<any>} sx={{ fontFamily: 'heading' }}>
       {props.children}
     </Heading>
   );

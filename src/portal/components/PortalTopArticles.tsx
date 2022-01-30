@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { PortalContext } from '../PortalView';
 import Link from 'next/link';
+import { UnderlinedHeader } from '../../layout/components/UnderlinedHeader';
+import { TopArticlesElement } from './TopArticlesElement';
 
 interface PortalTopArticlesProps {}
 
@@ -21,43 +23,16 @@ const PortalTopArticles: React.FC<PortalTopArticlesProps> = () => {
       sx={{
         alignItems: 'center',
         flexDirection: 'column',
-        minHeight: '316px',
-        width: '350px',
+        width: '100%',
       }}
     >
-      <Heading sx={{ fontFamily: 'source-serif-pro', fontSize: '24pt', textAlign: 'center', fontWeight: 'normal' }}>
-        Mest Leste Artikler
-      </Heading>
+      <UnderlinedHeader size="h2">Mest Leste Artikler</UnderlinedHeader>
 
-      <Divider sx={{ color: '#F9B759', borderBottom: '2px solid', width: '80px' }} />
-
-      <Box sx={{ height: 'inherit', width: 'inherit' }}>
-        <ol style={{ margin: 0 }}>
-          {sorted_list.map((article: Article, key: number) => (
-            <li style={{ color: '#0D5474' }} key={key}>
-              <Link href={`/${article.portal.slug.current}/${article.slug.current}`}>
-                <a>
-                  <Flex
-                    sx={{ flexDirection: 'row', justifyContent: 'space-between', height: '30px', alignItems: 'center' }}
-                  >
-                    <Box>
-                      <Text sx={{ fontFamily: 'sans-serif-pro', color: 'text' }}>{article.title}</Text>
-                    </Box>
-
-                    <Box>
-                      <Text sx={{ fontFamily: 'sans-serif-pro', color: 'text', mr: '5px' }}>{article.views}</Text>
-                      <FontAwesomeIcon
-                        icon={faEye}
-                        style={{ width: '22px', height: '14px', color: 'black' }}
-                      ></FontAwesomeIcon>
-                    </Box>
-                  </Flex>
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ol>
-      </Box>
+      <Flex sx={{ width: 'inherit', flexDirection: 'column', gap: '0.5rem' }}>
+        {sorted_list.map((article: Article, key: number) => (
+          <TopArticlesElement article={article} index={key} key={key} />
+        ))}
+      </Flex>
     </Flex>
   );
 };

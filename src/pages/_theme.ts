@@ -2,8 +2,8 @@ import { Theme } from 'theme-ui';
 
 export const theme: Theme = {
   fonts: {
-    'source-sans': 'Source Sans Pro, sans-serif',
-    'source-serif': 'Source Serif Pro, sans-serif',
+    body: 'Source Sans Pro, sans-serif',
+    heading: 'Source Serif Pro, sans-serif',
   },
   colors: {
     primary: '#0D5474',

@@ -3,6 +3,7 @@ import { Box, Divider, Flex, Heading, Text, Image, Paragraph } from 'theme-ui';
 import { Article } from '../../../types/types';
 import Link from 'next/link';
 import { PortalContext } from '../PortalView';
+import { UnderlinedHeader } from '../../layout/components/UnderlinedHeader';
 
 interface PortalFeaturedArticleProps {}
 
@@ -34,46 +35,34 @@ const PortalFeaturedArticle: React.FC<PortalFeaturedArticleProps> = () => {
       sx={{
         alignItems: 'center',
         flexDirection: 'column',
-        width: '666px',
-        minHeight: '316px',
       }}
     >
-      <Heading sx={{ fontFamily: 'source-serif-pro', fontSize: '24pt', textAlign: 'center', fontWeight: 'normal' }}>
-        Nyeste Artikkel
-      </Heading>
-
-      <Divider sx={{ color: '#F9B759', borderBottom: '2px solid', width: '140px', mb: '20px' }} />
+      <UnderlinedHeader size="h2">Nyeste Artikkel</UnderlinedHeader>
 
       <Link href={`/${portalSlug}/${articleSlug}`}>
         <a>
           <Flex
             sx={{
-              alignItems: 'center',
               flexDirection: 'row',
             }}
           >
             {featured_image() != '' ? (
-              <Box sx={{ minWidth: '220px', height: '240px', mr: '20px' }}>
-                <Image src={featured_image()} sx={{ maxWidth: '220px', minWidth: '200px', maxHeight: '240px' }} />
+              <Box sx={{ minWidth: '13rem', height: '15rem', mr: '1rem' }}>
+                <Image src={featured_image()} sx={{ maxWidth: '13rem', minWidth: '11rem', maxHeight: '15rem' }} />
               </Box>
             ) : (
               ''
             )}
-            <Box sx={{ minHeight: '240px' }}>
+            <Box>
               <Heading
+                as="h3"
                 sx={{
-                  fontFamily: 'source-serif-pro',
-                  fontSize: '24pt',
-                  textAlign: 'left',
-                  fontWeight: 'normal',
-                  mb: '10px',
+                  fontFamily: 'heading',
                 }}
               >
                 {featured_article.title}
               </Heading>
-              <Paragraph sx={{ fontFamily: 'source-sans-pro', color: 'text', fontSize: '14pt' }}>
-                {featured_article.excerpt}
-              </Paragraph>
+              <Paragraph sx={{ fontFamily: 'body', color: 'text' }}>{featured_article.excerpt}</Paragraph>
             </Box>
           </Flex>
         </a>

@@ -3,6 +3,7 @@ import React from 'react';
 import { Article } from '../../../../types/types';
 import { fetcher } from '../../../api/hooks';
 import ArticleView from '../../../article/ArticleView';
+import { Layout } from '../../../layout/components/Layout';
 
 interface ArticleIndexProps {
   article: Article;
@@ -10,9 +11,9 @@ interface ArticleIndexProps {
 
 const ArticleIndex: React.FC<ArticleIndexProps> = ({ article }) => {
   return (
-    <>
+    <Layout>
       <ArticleView article={article} />
-    </>
+    </Layout>
   );
 };
 
@@ -39,4 +40,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
-export default ArticleView;
+export default ArticleIndex;
