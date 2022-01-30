@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
-import { Box, Divider, Flex, Heading, Text } from 'theme-ui';
+import { Box, Divider, Flex, Grid, Heading, Text } from 'theme-ui';
 import { Article, Portal } from '../../types/types';
+import { UnderlinedHeader } from '../layout/components/UnderlinedHeader';
 import PortalAlphabeticalArticles from './components/PortalAlphabeticalArticles';
 import PortalFeaturedArticle from './components/PortalFeaturedArticle';
 import PortalTopArticles from './components/PortalTopArticles';
@@ -18,33 +19,32 @@ const PortalView: React.FC<PortalViewProps> = ({ articles, portal }) => {
 
   return (
     <>
-      <Flex sx={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-        <Heading sx={{ fontFamily: 'source-serif-pro', fontSize: '28pt', textAlign: 'center', fontWeight: 'bold' }}>
-          {portalName} Portal
-        </Heading>
-
-        <Divider sx={{ color: '#F9B759', borderBottom: '4px solid', width: '80px' }} />
-        <Text
-          sx={{
-            maxWidth: '700px',
-            textAlign: 'center',
-            fontFamily: 'source-sans-pro',
-            fontSize: '20pt',
-            color: 'text',
-          }}
-        >
-          {portalDescription}
-        </Text>
-      </Flex>
-      <PortalContext.Provider value={articles}>
-        <Box>
-          <Flex sx={{ justifyContent: 'center', alignItems: 'center' }}>
-            <PortalFeaturedArticle />
-            <PortalTopArticles />
-          </Flex>
-          <PortalAlphabeticalArticles />
+      <Grid columns={[2, '2fr 1fr']}>
+        <Box sx={{ gridColumn: 'span 2' }}>
+          <UnderlinedHeader size="h1">{portalName} Portal</UnderlinedHeader>
+          <Text
+            sx={{
+              maxWidth: '30rem',
+              textAlign: 'center',
+              fontFamily: 'body',
+              color: 'text',
+            }}
+          >
+            {portalDescription}
+          </Text>
         </Box>
-      </PortalContext.Provider>
+        <PortalContext.Provider value={articles}>
+          <Box>
+            <PortalFeaturedArticle />
+          </Box>
+          <Box>
+            <PortalTopArticles />
+          </Box>
+          <Box sx={{ gridColumn: 'span 2' }}>
+            <PortalAlphabeticalArticles />
+          </Box>
+        </PortalContext.Provider>
+      </Grid>
     </>
   );
 };
